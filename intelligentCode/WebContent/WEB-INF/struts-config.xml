@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+   <form-beans>
+      <form-bean name="reserva" type="form.ReservaForm"> Mudar!
+         <form-property  name="numero"         type="java.lang.Long"    initial="0" />Mudar!
+         <form-property  name="enderecoEmail"  type="java.lang.String"  />Mudar!
+         <form-property  name="cor"            type="java.lang.String"  />Mudar!
+         <form-property  name="tetoSolar"      type="java.lang.Boolean" initial="false" />Mudar!
+         <form-property  name="vidroEletrico"  type="java.lang.Boolean" initial="false" />Mudar!
+         <form-property  name="portas"         type="java.lang.String"  initial="4" />Mudar!
+         <form-property  name="valorLocacao"   type="java.lang.String"  />Mudar!
+         <form-property  name="dataLocacao"    type="java.lang.String"  />Mudar!
+         <form-property  name="agencia"        type="java.lang.String"  />Mudar!
+      </form-bean>
+   </form-beans>
+
+   <global-forwards>
+      <forward name="FalhaDeSistema" path=".falhaDeSistema" />Mudar!
+   </global-forwards>
+
+   <action-mappings>
+
+      <action path="/reserva/criar" Mudar!
+              name="reserva"Mudar!
+              scope="request"
+              validate="false"
+              forward=".criar" />Mudar!
+
+      <action path="/reserva/salvaOuAtualiza" Mudar!
+              name="reserva"Mudar!
+              scope="request"
+              type="action.ReservaActions"Mudar!
+              parameter="metodo"Mudar!
+              validate="true"
+              input=".criar">Mudar!
+
+         <forward name="Exibir" path=".exibir" />Mudar!
+
+      </action>
+
+      <action path="/reserva/listar" 
+              type="action.ReservaActions"
+              parameter="metodo">
+
+         <forward name="Listar"       path=".listar" />
+         <forward name="Inexistente"  path=".inexistente" />
+
+      </action>
+
+      <action path="/reserva/exibir" Mudar!
+              type="action.ReservaActions"Mudar!
+              parameter="metodo">Mudar!
+
+         <forward name="Exibir"       path=".exibir" />Mudar!
+         <forward name="Inexistente"  path=".inexistente" />Mudar!
+
+      </action>
+
+      <action path="/reserva/editarOuRemover" Mudar!
+              type="action.ReservaActions"Mudar!
+              scope="request"
+              name="reserva"Mudar!
+              validate="false"
+              parameter="metodo">Mudar!
+
+         <forward name="Editar"       path=".editar" />Mudar!
+         <forward name="Listar"       path=".listar" />Mudar!
+         <forward name="Inexistente"  path=".inexistente" />Mudar!
+
+      </action>
+
+   </action-mappings>
+
+   <message-resources parameter="ApplicationResources" null="false" />
+
+   <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+      <set-property property="pathnames"
+          value="/WEB-INF/validator-rules.xml,
+                 /WEB-INF/validation.xml"/>
+   </plug-in>
+
+   <plug-in className="org.apache.struts.tiles.TilesPlugin">
+      <set-property property="definitions-config"
+                    value="/WEB-INF/tiles-defs.xml"/>
+   </plug-in>
+
+</struts-config>

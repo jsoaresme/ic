@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+       
+<tiles-definitions>
+
+   <definition name=".criar" page="/reserva/layout.jsp">Mudar!
+      <put name="titulo"     value="Utilizando Tiles Definition" />Mudar!
+      <put name="cabecalho"  value="/reserva/cabecalho.jsp" />Mudar!
+      <put name="corpo"      value="/reserva/criar.jsp" />Mudar!
+      <put name="rodape"     value="/reserva/rodape.jsp" />Mudar!
+   </definition>
+
+   <definition name=".exibir" extends=".criar">Mudar!
+      <put name="corpo"      value="/reserva/exibir.jsp" />Mudar!
+   </definition>
+
+   <definition name=".listar" extends=".criar">Mudar!
+      <put name="corpo"      value="/reserva/listar.jsp" />Mudar!
+   </definition>
+
+   <definition name=".editar" extends=".criar">Mudar!
+      <put name="corpo"      value="/reserva/editar.jsp" />Mudar!
+   </definition>
+
+   <definition name=".inexistente" extends=".criar">Mudar!
+      <put name="corpo"      value="/reserva/inexistente.jsp" />Mudar!
+   </definition>
+
+   <definition name=".falhaDeSistema" extends=".criar">Mudar!
+      <put name="corpo"      value="/reserva/falhaDeSistema.jsp" />Mudar!
+   </definition>
+
+</tiles-definitions>
